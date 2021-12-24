@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <link rel="stylesheet"href="https://bootswatch.com/5/journal/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand"  href="/">Immo. Prediction </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+  </div>
+</nav>
+
+<div class="container" style="width: 850px;">
+  <!-- Content here -->
+<form th:action="@{buildmodel}" method="post" th:object="${house}">
+    <legend>Prédiciton de prix</legend>
+
+
+  <div class="form-group">
+      <label for="region" class="form-label mt-4">Région</label>
+      <select class="form-select" id="region" th:field="*{ng_name}">
+        <option th:value="Badr">Badr</option>
+        <option value="Al Munsiyah" >Al Munsiyah</option>
+
+      </select>
+    </div>
+  <div class="form-group">
+    <label for="quartier" class="form-label mt-4">Quartier</label>
+    <select class="form-select" id="quartier" th:field="*{admin_area}">
+      <option th:value="Makkah">Makkah</option>
+      <option th:value="Riyadh">Riyadh</option>
+      <option th:value="2">2</option>
+
+    </select>
+  </div><div class="form-group">
+    <label for="city" class="form-label mt-4">City</label>
+    <select class="form-select" id="city" th:field="*{city}">
+      <option th:value="Jeddah" >Jeddah</option>
+      <option value="East Riyadh" >East Riyadh</option>
+
+    </select>
+  </div>
+
+    <div class="form-group">
+      <label for="sufaceinput" class="form-label mt-4">Surface</label>
+      <input type="text" class="form-control" id="sufaceinput" th:field="*{sqm}" placeholder="Surface en m²">
+    </div>
+    <fieldset class="form-group">
+      <legend class="mt-4">Chambres</legend>
+      <input type="range" class="form-range" min="0" max="10" step="1" id="nbchambres" th:field="*{rooms}">
+      <p>Valeur: <span id="valuechambre"></span></p>
+    </fieldset>
+    <fieldset class="form-group">
+      <legend class="mt-4">Salles de bain</legend>
+      <input type="range" class="form-range" min="0" max="10" step="1" id="nbwc" th:field="*{bathrooms}">
+      <p>Valeur: <span id="valuewc"></span></p>
+    </fieldset>
+    <fieldset>
+      <legend class="mt-4">Jardin</legend>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option0" autocomplete="off" th:field="*{garden}" checked th:value="1.0"> OUI
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option1" autocomplete="off" th:field="*{garden}" th:value="0.0"> NON
+        </label>
+
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="mt-4">Piscine</legend>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option2" autocomplete="off" th:field="*{pool}" checked th:value="1.0"> OUI
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option3" autocomplete="off" th:field="*{pool}" th:value="0.0"> NON
+        </label>
+
+      </div>
+
+    </fieldset>
+    <fieldset>
+      <legend class="mt-4">Ascenseur</legend>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option4" autocomplete="off" th:field="*{elev}" checked th:value="1.0"> OUI
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option5" autocomplete="off" th:field="*{elev}" th:value="0.0"> NON
+        </label>
+
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="mt-4">Chambre pour chauffeur</legend>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option6" autocomplete="off" th:field="*{driver}" checked th:value="1.0"> OUI
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option7" autocomplete="off" th:field="*{driver}" th:value="0.0"> NON
+        </label>
+
+      </div>
+    </fieldset>
+  <div class="form-group" style="margin-bottom: 50px;">
+
+    <button type="submit" class="btn btn-primary">Prédire</button>
+  </div>
+</form>
+</div>
+</body>
+<script>
+  var slider1 = document.getElementById("nbchambres");
+  var slider2 = document.getElementById("nbwc");
+  var output1 = document.getElementById("valuechambre");
+  var output2 = document.getElementById("valuewc");
+  output1.innerHTML = slider1.value;
+  output2.innerHTML = slider2.value;
+
+  slider1.oninput = function() {
+    output1.innerHTML = this.value;
+  }
+  slider2.oninput = function() {
+    output2.innerHTML = this.value;
+  }
+</script>
+
+</html>
