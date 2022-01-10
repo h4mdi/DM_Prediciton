@@ -62,64 +62,92 @@
       <input type="range" class="form-range" min="0" max="10" step="1" id="nbwc" th:field="*{bathrooms}">
       <p>Valeur: <span id="valuewc"></span></p>
     </fieldset>
+
+  <div class="row">
+  <div class="col-md-4">
     <fieldset>
-      <legend class="mt-4">Jardin</legend>
 
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="option0" autocomplete="off" th:field="*{garden}" checked th:value="1.0"> OUI
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option1" autocomplete="off" th:field="*{garden}" th:value="0.0"> NON
-        </label>
+    <legend class="mt-4">Jardin</legend>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary active">
+        <input type="radio" name="options" id="option0" autocomplete="off" th:field="*{garden}" checked th:value="1.0"> OUI
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option1" autocomplete="off" th:field="*{garden}" th:value="0.0"> NON
+      </label>
 
-      </div>
-    </fieldset>
+    </div>
+  </fieldset>
 
-    <fieldset>
-      <legend class="mt-4">Piscine</legend>
-
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="option2" autocomplete="off" th:field="*{pool}" checked th:value="1.0"> OUI
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option3" autocomplete="off" th:field="*{pool}" th:value="0.0"> NON
-        </label>
-
-      </div>
-
-    </fieldset>
-    <fieldset>
-      <legend class="mt-4">Ascenseur</legend>
-
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="option4" autocomplete="off" th:field="*{elev}" checked th:value="1.0"> OUI
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option5" autocomplete="off" th:field="*{elev}" th:value="0.0"> NON
-        </label>
-
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend class="mt-4">Chambre pour chauffeur</legend>
-
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="option6" autocomplete="off" th:field="*{driver}" checked th:value="1.0"> OUI
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option7" autocomplete="off" th:field="*{driver}" th:value="0.0"> NON
-        </label>
-
-      </div>
-    </fieldset>
-  <div class="form-group" style="margin-bottom: 50px;">
-
-    <button type="submit" class="btn btn-primary">Prédire</button>
   </div>
+    <div class="col-md-4">
+      <fieldset>
+        <legend class="mt-4">Piscine</legend>
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option2" autocomplete="off" th:field="*{pool}" checked th:value="1.0"> OUI
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off" th:field="*{pool}" th:value="0.0"> NON
+          </label>
+
+        </div>
+
+      </fieldset>
+
+    </div>
+
+    </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <fieldset>
+        <legend class="mt-4">Ascenseur</legend>
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option4" autocomplete="off" th:field="*{elev}" checked th:value="1.0"> OUI
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option5" autocomplete="off" th:field="*{elev}" th:value="0.0"> NON
+          </label>
+
+        </div>
+      </fieldset>
+
+    </div>
+    <div class="col-md-4">
+      <fieldset>
+        <legend class="mt-4">Chambre chauffeur</legend>
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option6" autocomplete="off" th:field="*{driver}" checked th:value="1.0"> OUI
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option7" autocomplete="off" th:field="*{driver}" th:value="0.0"> NON
+          </label>
+
+        </div>
+      </fieldset>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group" style="margin-top: 20px;">
+
+        <button type="submit" class="btn btn-primary">Prédire</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
 </form>
 </div>
 </body>
